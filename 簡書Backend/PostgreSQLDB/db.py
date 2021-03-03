@@ -72,22 +72,12 @@ class Users(db.Model):
 
     @staticmethod
     def validate_username(username):
-        if Users.query.filter_by(username=username).first():
-            return True
-        else:
-            return False
+        return bool(Users.query.filter_by(username=username).first())
 
     @staticmethod
     def validate_account(account):
-        if Users.query.filter_by(account=account).first():
-            return True
-        else:
-            return False
+        return bool(Users.query.filter_by(account=account).first())
 
     @staticmethod
     def validate_email(email):
-        if Users.query.filter_by(email=email).first():
-            return True
-        else:
-            return False
-
+        return bool(Users.query.filter_by(email=email).first())
